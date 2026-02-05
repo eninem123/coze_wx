@@ -188,42 +188,78 @@ class FeishuWebSocketServer:
                 # 本地上传图片，没有URL的情况
                 logger.info(f"检测到本地上传图片，没有URL可用")
                 
-                # 尝试使用豆包API分析本地图片
-                logger.info("尝试使用豆包API分析本地股票截图...")
+                # 尝试从飞书API下载图片
+                logger.info("尝试从飞书API下载图片...")
                 
-                # 由于没有URL，尝试使用占位符URL进行分析
-                placeholder_url = "https://example.com/stock_chart.jpg"
-                analysis = self.image_analyzer.analyze_stock_image(placeholder_url)
-                
-                if analysis:
-                    # 豆包分析成功，生成提示词并询问Coze
-                    prompt = self.image_analyzer.generate_stock_prompt(analysis)
+                try:
+                    # 从飞书API获取图片内容
+                    # 正确的API端点: https://open.feishu.cn/open-apis/im/v1/images/{image_key}
+                    token = self.feishu_messenger.get_tenant_access_token()
+                    image_download_url = f"{Config.FEISHU_API_BASE}/im/v1/images/{image_key}"
+                    headers = {
+                        "Authorization": f"Bearer {token}"
+                    }
                     
-                    if prompt:
-                        combined_question = prompt
+                    import requests
+                    response = requests.get(image_download_url, headers=headers, timeout=30)
+                    
+                    # 打印响应信息用于调试
+                    logger.info(f"图片下载响应状态码: {response.status_code}")
+                    logger.info(f"图片下载响应头: {dict(response.headers)}")
+                    
+                    response.raise_for_status()
+                    
+                    # 读取图片二进制数据
+                    image_content = response.content
+                    logger.info(f"成功下载图片，大小: {len(image_content) / 1024 / 1024:.2f} MB")
+                    
+                    # 转换为base64格式
+                    import base64
+                    base64_image = base64.b64encode(image_content).decode('utf-8')
+                    base64_url = f"data:image/jpeg;base64,{base64_image}"
+                    
+                    # 使用豆包API分析图片
+                    logger.info("使用豆包API分析本地图片...")
+                    analysis = self.image_analyzer.analyze_stock_image(base64_url)
+                    
+                    if not analysis:
+                        # 如果股票分析失败，使用通用分析
+                        analysis = self.image_analyzer.analyze_image(base64_url)
+                    
+                    if analysis:
+                        # 生成提示词并询问Coze
+                        prompt = self.image_analyzer.generate_stock_prompt(analysis)
+                        
+                        if prompt:
+                            combined_question = prompt
+                        else:
+                            combined_question = f"图片分析结果：{analysis}\n\n请根据图片内容和上述分析，提供相关的股票分析或建议"
+                        
+                        logger.info(f"将豆包分析结果转发给Coze智能体...")
+                        answer = self.coze_manager.call_coze_with_context(user_id, combined_question)
+                        
+                        import time
+                        timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+                        title = f"【{timestamp} 本地图片分析 + 智能体回复】"
+                        
+                        full_content = f"**图片分析结果：**\n{analysis}\n\n**智能体回答：**\n{answer}"
+                        
+                        success = self.feishu_messenger.send_card_message(user_id, title, full_content)
                     else:
-                        combined_question = f"图片分析结果：{analysis}\n\n请根据图片内容和上述分析，提供相关的股票分析或建议"
+                        # 本地图片分析失败
+                        logger.info("豆包API分析失败，告知用户无法分析本地图片")
+                        success = self.feishu_messenger.send_message(user_id, "❌ 抱歉，无法分析本地图片内容。请尝试重新发送图片或提供更多信息。")
+                        
+                except Exception as e:
+                    logger.error(f"下载和分析本地图片失败: {str(e)}")
+                    import traceback
+                    logger.error(f"错误堆栈: {traceback.format_exc()}")
+                    success = self.feishu_messenger.send_message(user_id, "❌ 抱歉，下载图片失败。请尝试重新发送图片或提供更多信息。")
                     
-                    logger.info(f"将豆包分析结果转发给Coze智能体...")
-                    answer = self.coze_manager.call_coze_with_context(user_id, combined_question)
-                    
-                    import time
-                    timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
-                    title = f"【{timestamp} 本地图片分析 + 智能体回复】"
-                    
-                    full_content = f"**图片分析结果：**\n{analysis}\n\n**智能体回答：**\n{answer}"
-                    
-                    success = self.feishu_messenger.send_card_message(user_id, title, full_content)
+                if success:
+                    logger.info(f"✅ 已处理本地图片并回复用户 {user_id}")
                 else:
-                    # 本地图片分析失败，直接告诉用户分析不了图片
-                    logger.info("豆包API分析失败，告知用户无法分析本地图片")
-                    
-                    success = self.feishu_messenger.send_message(user_id, "❌ 抱歉，无法分析本地图片内容。请尝试重新发送图片或提供更多信息。")
-                    
-                    if success:
-                        logger.info(f"✅ 已告知用户无法分析本地图片 {user_id}")
-                    else:
-                        logger.error(f"❌ 回复用户 {user_id} 失败")
+                    logger.error(f"❌ 回复用户 {user_id} 失败")
                 
         except Exception as e:
             logger.error(f"处理图片消息失败: {str(e)}")

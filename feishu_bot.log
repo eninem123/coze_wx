@@ -1140,3 +1140,234 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://open
 2026-02-05 01:00:34,695 - __main__ - INFO - 正在停止飞书股票智能机器人...
 2026-02-05 01:00:34,695 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
 2026-02-05 01:00:39,701 - __main__ - INFO - ✅ 飞书股票智能机器人已停止
+2026-02-05 09:32:16,642 - __main__ - INFO - ==================================================
+2026-02-05 09:32:16,643 - __main__ - INFO - 飞书股票智能机器人启动中...
+2026-02-05 09:32:16,644 - __main__ - INFO - ==================================================
+2026-02-05 09:32:16,646 - __main__ - INFO - ✅ 定时任务调度器已启动
+2026-02-05 09:32:16,648 - feishu_websocket - INFO - 飞书WebSocket服务器启动中...
+2026-02-05 09:32:16,649 - feishu_websocket - INFO - App ID: cli_a909df14e7f85bc0
+2026-02-05 09:32:16,649 - feishu_websocket - INFO - App Secret: GMw20dEYIC...
+2026-02-05 09:32:16,650 - feishu_websocket - INFO - Verification Token: ...
+2026-02-05 09:32:17,939 - Lark - INFO - connected to wss://msg-frontier.feishu.cn/ws/v2?fpid=493&aid=552564&device_id=7603187906195721436&access_key=0dada78b8f5609f345319c18b8c2da29&service_id=33554678&ticket=713dee08-e720-4037-85e5-8e41f480c51a [conn_id=7603187906195721436]
+2026-02-05 09:35:49,892 - feishu_websocket - INFO - 收到消息，数据类型: <class 'lark_oapi.api.im.v1.model.p2_im_message_receive_v1.P2ImMessageReceiveV1'>
+2026-02-05 09:35:49,892 - feishu_websocket - INFO - 收到消息，用户: ou_1dc6165833b6d6ad79bf29eb0e674572, 消息类型: text
+2026-02-05 09:35:49,893 - feishu_websocket - INFO - 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 发送消息: 今天推荐股票？10天能涨5%大概率的
+2026-02-05 09:35:49,893 - feishu_websocket - INFO - 转发用户 ou_1dc6165833b6d6ad79bf29eb0e674572 的问题到智能体...
+2026-02-05 09:35:49,893 - coze_manager - INFO - [Coze] 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 提问: 今天推荐股票？10天能涨5%大概率的
+2026-02-05 09:35:49,893 - coze_manager - INFO - [Coze] 对话历史记录数: 1
+2026-02-05 09:35:49,893 - coze_manager - INFO - [Coze] 请求数据: {"content": {"query": {"prompt": [{"type": "text", "content": {"text": "今天推荐股票？10天能涨5%大概率的"}}]}}, "type": "query", "session_id": "Sv2ke0dSddwKotcns0j1c", "project_id": 7598933258117611561}...
+2026-02-05 09:35:49,893 - coze_manager - INFO - [Coze] 正在调用API: https://8mbn769hk8.coze.site/stream_run
+2026-02-05 09:36:10,305 - coze_manager - INFO - [Coze] API响应状态码: 200
+2026-02-05 09:36:46,388 - coze_manager - INFO - [Coze] 处理了 2066 行响应
+2026-02-05 09:36:46,389 - coze_manager - INFO - [Coze] 完整回答: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 短期高概率上涨股票筛选框架（10天5%目标）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【一、高概率上涨股票筛选标准】
+...
+2026-02-05 09:36:46,390 - coze_manager - INFO - [Coze] 成功获取智能体回复，长度: 1573
+2026-02-05 09:36:48,216 - feishu_websocket - INFO - ✅ 成功回复用户 ou_1dc6165833b6d6ad79bf29eb0e674572
+2026-02-05 09:36:48,223 - feishu_websocket - INFO - 收到消息，数据类型: <class 'lark_oapi.api.im.v1.model.p2_im_message_receive_v1.P2ImMessageReceiveV1'>
+2026-02-05 09:36:48,223 - feishu_websocket - INFO - 收到消息，用户: ou_1dc6165833b6d6ad79bf29eb0e674572, 消息类型: text
+2026-02-05 09:36:48,224 - feishu_websocket - INFO - 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 发送消息: 今天推荐股票？10天能涨5%大概率的
+2026-02-05 09:36:48,224 - feishu_websocket - INFO - 转发用户 ou_1dc6165833b6d6ad79bf29eb0e674572 的问题到智能体...
+2026-02-05 09:36:48,224 - coze_manager - INFO - [Coze] 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 提问: 今天推荐股票？10天能涨5%大概率的
+2026-02-05 09:36:48,225 - coze_manager - INFO - [Coze] 对话历史记录数: 3
+2026-02-05 09:36:48,225 - coze_manager - INFO - [Coze] 请求数据: {"content": {"query": {"prompt": [{"type": "text", "content": {"text": "今天推荐股票？10天能涨5%大概率的"}}, {"type": "text", "content": {"text": "今天推荐股票？10天能涨5%大概率的"}}]}}, "type": "query", "session_id": "Sv2ke0dSd...
+2026-02-05 09:36:48,225 - coze_manager - INFO - [Coze] 正在调用API: https://8mbn769hk8.coze.site/stream_run
+2026-02-05 09:36:49,965 - coze_manager - INFO - [Coze] API响应状态码: 200
+2026-02-05 09:37:29,526 - coze_manager - INFO - [Coze] 处理了 2396 行响应
+2026-02-05 09:37:29,526 - coze_manager - INFO - [Coze] 完整回答: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 短期高概率上涨股票筛选与操作指南（10天5%目标）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【一、当前市场环境分析】
+...
+2026-02-05 09:37:29,528 - coze_manager - INFO - [Coze] 成功获取智能体回复，长度: 1841
+2026-02-05 09:37:30,664 - feishu_websocket - INFO - ✅ 成功回复用户 ou_1dc6165833b6d6ad79bf29eb0e674572
+2026-02-05 09:37:30,728 - Lark - ERROR - receive message loop exit, err: sent 1011 (internal error) keepalive ping timeout; no close frame received [conn_id=7603187906195721436]
+2026-02-05 09:37:30,729 - Lark - INFO - disconnected to wss://msg-frontier.feishu.cn/ws/v2?fpid=493&aid=552564&device_id=7603187906195721436&access_key=0dada78b8f5609f345319c18b8c2da29&service_id=33554678&ticket=713dee08-e720-4037-85e5-8e41f480c51a [conn_id=7603187906195721436]
+2026-02-05 09:37:35,697 - Lark - INFO - trying to reconnect for the 1st time
+2026-02-05 09:37:36,667 - Lark - INFO - connected to wss://msg-frontier.feishu.cn/ws/v2?fpid=493&aid=552564&device_id=7603189279901158579&access_key=d1db127570dca59b78f28f8169a15456&service_id=33554678&ticket=9ce8f3ea-fce2-4176-9361-01e8448c038d [conn_id=7603189279901158579]
+2026-02-05 09:41:13,334 - feishu_websocket - INFO - 收到消息，数据类型: <class 'lark_oapi.api.im.v1.model.p2_im_message_receive_v1.P2ImMessageReceiveV1'>
+2026-02-05 09:41:13,334 - feishu_websocket - INFO - 收到消息，用户: ou_1dc6165833b6d6ad79bf29eb0e674572, 消息类型: text
+2026-02-05 09:41:13,335 - feishu_websocket - INFO - 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 发送消息: 今天推荐股票？10天能涨5%大概率的
+2026-02-05 09:41:13,335 - feishu_websocket - INFO - 转发用户 ou_1dc6165833b6d6ad79bf29eb0e674572 的问题到智能体...
+2026-02-05 09:41:13,336 - coze_manager - INFO - [Coze] 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 提问: 今天推荐股票？10天能涨5%大概率的
+2026-02-05 09:41:13,336 - coze_manager - INFO - [Coze] 对话历史记录数: 5
+2026-02-05 09:41:13,336 - coze_manager - INFO - [Coze] 请求数据: {"content": {"query": {"prompt": [{"type": "text", "content": {"text": "今天推荐股票？10天能涨5%大概率的"}}, {"type": "text", "content": {"text": "今天推荐股票？10天能涨5%大概率的"}}, {"type": "text", "content": {"text": "今天推荐股票...
+2026-02-05 09:41:13,336 - coze_manager - INFO - [Coze] 正在调用API: https://8mbn769hk8.coze.site/stream_run
+2026-02-05 09:41:14,609 - coze_manager - INFO - [Coze] API响应状态码: 200
+2026-02-05 09:42:06,182 - coze_manager - INFO - [Coze] 处理了 2576 行响应
+2026-02-05 09:42:06,182 - coze_manager - INFO - [Coze] 完整回答: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 短期高概率上涨股票推荐与操作指南（10天5%目标）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【一、今日推荐标的（按上涨...
+2026-02-05 09:42:06,182 - coze_manager - INFO - [Coze] 成功获取智能体回复，长度: 1936
+2026-02-05 09:42:07,311 - feishu_websocket - INFO - ✅ 成功回复用户 ou_1dc6165833b6d6ad79bf29eb0e674572
+2026-02-05 09:42:07,314 - Lark - ERROR - receive message loop exit, err: received 3003 (registered) ping_timeout; then sent 3003 (registered) ping_timeout [conn_id=7603189279901158579]
+2026-02-05 09:42:07,316 - Lark - INFO - disconnected to wss://msg-frontier.feishu.cn/ws/v2?fpid=493&aid=552564&device_id=7603189279901158579&access_key=d1db127570dca59b78f28f8169a15456&service_id=33554678&ticket=9ce8f3ea-fce2-4176-9361-01e8448c038d [conn_id=7603189279901158579]
+2026-02-05 09:42:19,190 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 09:42:19,191 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 09:42:19,191 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 09:42:24,191 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 09:42:24,192 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 09:42:24,193 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 09:42:29,195 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 09:42:29,195 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 09:42:29,196 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 09:42:34,198 - __main__ - INFO - ✅ 飞书股票智能机器人已停止
+2026-02-05 14:00:04,800 - __main__ - INFO - ==================================================
+2026-02-05 14:00:04,800 - __main__ - INFO - 飞书股票智能机器人启动中...
+2026-02-05 14:00:04,800 - __main__ - INFO - ==================================================
+2026-02-05 14:00:04,804 - __main__ - INFO - ✅ 定时任务调度器已启动
+2026-02-05 14:00:04,804 - feishu_websocket - INFO - 飞书WebSocket服务器启动中...
+2026-02-05 14:00:04,804 - feishu_websocket - INFO - App ID: cli_a909df14e7f85bc0
+2026-02-05 14:00:04,804 - feishu_websocket - INFO - App Secret: GMw20dEYIC...
+2026-02-05 14:00:04,804 - feishu_websocket - INFO - Verification Token: ...
+2026-02-05 14:00:05,760 - Lark - INFO - connected to wss://msg-frontier.feishu.cn/ws/v2?fpid=493&aid=552564&device_id=7603256919873391833&access_key=3279cae226f20f0227d41bda2f244dd1&service_id=33554678&ticket=8335239e-4952-4fdf-b560-1045d04506e9 [conn_id=7603256919873391833]
+2026-02-05 14:04:24,846 - feishu_websocket - INFO - 收到消息，数据类型: <class 'lark_oapi.api.im.v1.model.p2_im_message_receive_v1.P2ImMessageReceiveV1'>
+2026-02-05 14:04:24,846 - feishu_websocket - INFO - 收到消息，用户: ou_1dc6165833b6d6ad79bf29eb0e674572, 消息类型: image
+2026-02-05 14:04:24,847 - feishu_websocket - INFO - 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 发送图片: img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+2026-02-05 14:04:24,847 - feishu_websocket - INFO - 图片信息: {'image_key': 'img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g'}
+2026-02-05 14:04:24,848 - feishu_websocket - INFO - 使用图片key: img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+2026-02-05 14:04:27,799 - feishu_websocket - ERROR - 获取图片URL异常: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+2026-02-05 14:04:27,805 - feishu_websocket - ERROR - 错误堆栈: Traceback (most recent call last):
+  File "D:\coze_wx\feishu_websocket.py", line 101, in get_image_url
+    response.raise_for_status()
+  File "C:\Users\U0016193\scoop\apps\python311\current\Lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+
+2026-02-05 14:04:27,809 - feishu_websocket - INFO - 检测到本地上传图片，没有URL可用
+2026-02-05 14:04:27,810 - feishu_websocket - INFO - 尝试使用豆包API分析本地股票截图...
+2026-02-05 14:04:29,635 - feishu_websocket - INFO - 豆包API分析失败，告知用户无法分析本地图片
+2026-02-05 14:04:30,718 - feishu_websocket - INFO - ✅ 已告知用户无法分析本地图片 ou_1dc6165833b6d6ad79bf29eb0e674572
+2026-02-05 14:04:44,493 - feishu_websocket - INFO - 收到消息，数据类型: <class 'lark_oapi.api.im.v1.model.p2_im_message_receive_v1.P2ImMessageReceiveV1'>
+2026-02-05 14:04:44,493 - feishu_websocket - INFO - 收到消息，用户: ou_1dc6165833b6d6ad79bf29eb0e674572, 消息类型: image
+2026-02-05 14:04:44,493 - feishu_websocket - INFO - 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 发送图片: img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+2026-02-05 14:04:44,493 - feishu_websocket - INFO - 图片信息: {'image_key': 'img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g'}
+2026-02-05 14:04:44,495 - feishu_websocket - INFO - 使用图片key: img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+2026-02-05 14:04:47,646 - feishu_websocket - ERROR - 获取图片URL异常: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+2026-02-05 14:04:47,669 - feishu_websocket - ERROR - 错误堆栈: Traceback (most recent call last):
+  File "D:\coze_wx\feishu_websocket.py", line 101, in get_image_url
+    response.raise_for_status()
+  File "C:\Users\U0016193\scoop\apps\python311\current\Lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+
+2026-02-05 14:04:47,764 - feishu_websocket - INFO - 检测到本地上传图片，没有URL可用
+2026-02-05 14:04:47,775 - feishu_websocket - INFO - 尝试使用豆包API分析本地股票截图...
+2026-02-05 14:04:49,380 - feishu_websocket - INFO - 豆包API分析失败，告知用户无法分析本地图片
+2026-02-05 14:04:50,550 - feishu_websocket - INFO - ✅ 已告知用户无法分析本地图片 ou_1dc6165833b6d6ad79bf29eb0e674572
+2026-02-05 14:09:48,308 - feishu_websocket - INFO - 收到消息，数据类型: <class 'lark_oapi.api.im.v1.model.p2_im_message_receive_v1.P2ImMessageReceiveV1'>
+2026-02-05 14:09:48,309 - feishu_websocket - INFO - 收到消息，用户: ou_1dc6165833b6d6ad79bf29eb0e674572, 消息类型: image
+2026-02-05 14:09:48,309 - feishu_websocket - INFO - 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 发送图片: img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+2026-02-05 14:09:48,309 - feishu_websocket - INFO - 图片信息: {'image_key': 'img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g'}
+2026-02-05 14:09:48,309 - feishu_websocket - INFO - 使用图片key: img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+2026-02-05 14:09:50,189 - feishu_websocket - ERROR - 获取图片URL异常: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+2026-02-05 14:09:50,189 - feishu_websocket - ERROR - 错误堆栈: Traceback (most recent call last):
+  File "D:\coze_wx\feishu_websocket.py", line 101, in get_image_url
+    response.raise_for_status()
+  File "C:\Users\U0016193\scoop\apps\python311\current\Lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_72a412e1-d329-4944-bf7e-e0a714b9db4g
+
+2026-02-05 14:09:50,192 - feishu_websocket - INFO - 检测到本地上传图片，没有URL可用
+2026-02-05 14:09:50,193 - feishu_websocket - INFO - 尝试使用豆包API分析本地股票截图...
+2026-02-05 14:09:51,617 - feishu_websocket - INFO - 豆包API分析失败，告知用户无法分析本地图片
+2026-02-05 14:09:52,696 - feishu_websocket - INFO - ✅ 已告知用户无法分析本地图片 ou_1dc6165833b6d6ad79bf29eb0e674572
+2026-02-05 15:05:59,475 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 15:05:59,477 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 15:05:59,477 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 15:06:04,478 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 15:06:04,482 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 15:06:04,483 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 15:06:04,909 - __main__ - INFO - ✅ 飞书股票智能机器人已停止
+2026-02-05 15:14:07,255 - __main__ - INFO - ==================================================
+2026-02-05 15:14:07,256 - __main__ - INFO - 飞书股票智能机器人启动中...
+2026-02-05 15:14:07,256 - __main__ - INFO - ==================================================
+2026-02-05 15:14:07,261 - __main__ - INFO - ✅ 定时任务调度器已启动
+2026-02-05 15:14:07,262 - feishu_websocket - INFO - 飞书WebSocket服务器启动中...
+2026-02-05 15:14:07,262 - feishu_websocket - INFO - App ID: cli_a909df14e7f85bc0
+2026-02-05 15:14:07,263 - feishu_websocket - INFO - App Secret: GMw20dEYIC...
+2026-02-05 15:14:07,263 - feishu_websocket - INFO - Verification Token: ...
+2026-02-05 15:14:08,456 - Lark - INFO - connected to wss://msg-frontier.feishu.cn/ws/v2?fpid=493&aid=552564&device_id=7603276004035890377&access_key=5d60e915bf3d6df2e6da4209e5d7943a&service_id=33554678&ticket=c5125cb9-2df2-497a-a428-2cfa5e562787 [conn_id=7603276004035890377]
+2026-02-05 15:36:07,123 - __main__ - INFO - ==================================================
+2026-02-05 15:36:07,125 - __main__ - INFO - 飞书股票智能机器人启动中...
+2026-02-05 15:36:07,125 - __main__ - INFO - ==================================================
+2026-02-05 15:36:07,129 - __main__ - INFO - ✅ 定时任务调度器已启动
+2026-02-05 15:36:07,131 - feishu_websocket - INFO - 飞书WebSocket服务器启动中...
+2026-02-05 15:36:07,131 - feishu_websocket - INFO - App ID: cli_a909df14e7f85bc0
+2026-02-05 15:36:07,132 - feishu_websocket - INFO - App Secret: GMw20dEYIC...
+2026-02-05 15:36:07,133 - feishu_websocket - INFO - Verification Token: ...
+2026-02-05 15:36:08,374 - Lark - INFO - connected to wss://msg-frontier.feishu.cn/ws/v2?fpid=493&aid=552564&device_id=7603281673036778679&access_key=5de048151a61c2245486ed1674b3cc0d&service_id=33554678&ticket=3cdf7b69-6c5f-4a73-8d1d-8cac8f77e1cc [conn_id=7603281673036778679]
+2026-02-05 15:36:31,262 - __main__ - INFO - ==================================================
+2026-02-05 15:36:31,262 - __main__ - INFO - 飞书股票智能机器人启动中...
+2026-02-05 15:36:31,262 - __main__ - INFO - ==================================================
+2026-02-05 15:36:31,263 - __main__ - INFO - ✅ 定时任务调度器已启动
+2026-02-05 15:36:31,265 - feishu_websocket - INFO - 飞书WebSocket服务器启动中...
+2026-02-05 15:36:31,265 - feishu_websocket - INFO - App ID: cli_a909df14e7f85bc0
+2026-02-05 15:36:31,265 - feishu_websocket - INFO - App Secret: GMw20dEYIC...
+2026-02-05 15:36:31,265 - feishu_websocket - INFO - Verification Token: ...
+2026-02-05 15:36:32,063 - Lark - INFO - connected to wss://msg-frontier.feishu.cn/ws/v2?fpid=493&aid=552564&device_id=7603281776808365254&access_key=ce8e31926a38484331eb9f72e659814b&service_id=33554678&ticket=1472bf4e-972a-4ae0-a4e1-49043fa75906 [conn_id=7603281776808365254]
+2026-02-05 15:49:06,781 - feishu_websocket - INFO - 收到消息，数据类型: <class 'lark_oapi.api.im.v1.model.p2_im_message_receive_v1.P2ImMessageReceiveV1'>
+2026-02-05 15:49:06,783 - feishu_websocket - INFO - 收到消息，用户: ou_1dc6165833b6d6ad79bf29eb0e674572, 消息类型: image
+2026-02-05 15:49:06,784 - feishu_websocket - INFO - 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 发送图片: img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g
+2026-02-05 15:49:06,785 - feishu_websocket - INFO - 图片信息: {'image_key': 'img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g'}
+2026-02-05 15:49:06,785 - feishu_websocket - INFO - 使用图片key: img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g
+2026-02-05 15:49:09,338 - feishu_websocket - ERROR - 获取图片URL异常: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g
+2026-02-05 15:49:09,344 - feishu_websocket - ERROR - 错误堆栈: Traceback (most recent call last):
+  File "D:\coze_wx\feishu_websocket.py", line 101, in get_image_url
+    response.raise_for_status()
+  File "C:\Users\U0016193\scoop\apps\python311\current\Lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g
+
+2026-02-05 15:49:09,346 - feishu_websocket - INFO - 检测到本地上传图片，没有URL可用
+2026-02-05 15:49:09,346 - feishu_websocket - INFO - 尝试从飞书API下载图片...
+2026-02-05 15:49:09,995 - feishu_websocket - ERROR - 下载和分析本地图片失败: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/images/img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g/download
+2026-02-05 15:49:11,081 - feishu_websocket - INFO - ✅ 已处理本地图片并回复用户 ou_1dc6165833b6d6ad79bf29eb0e674572
+2026-02-05 15:49:25,609 - feishu_websocket - INFO - 收到消息，数据类型: <class 'lark_oapi.api.im.v1.model.p2_im_message_receive_v1.P2ImMessageReceiveV1'>
+2026-02-05 15:49:25,609 - feishu_websocket - INFO - 收到消息，用户: ou_1dc6165833b6d6ad79bf29eb0e674572, 消息类型: image
+2026-02-05 15:49:25,610 - feishu_websocket - INFO - 用户 ou_1dc6165833b6d6ad79bf29eb0e674572 发送图片: img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g
+2026-02-05 15:49:25,610 - feishu_websocket - INFO - 图片信息: {'image_key': 'img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g'}
+2026-02-05 15:49:25,611 - feishu_websocket - INFO - 使用图片key: img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g
+2026-02-05 15:49:27,743 - feishu_websocket - ERROR - 获取图片URL异常: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g
+2026-02-05 15:49:27,746 - feishu_websocket - ERROR - 错误堆栈: Traceback (most recent call last):
+  File "D:\coze_wx\feishu_websocket.py", line 101, in get_image_url
+    response.raise_for_status()
+  File "C:\Users\U0016193\scoop\apps\python311\current\Lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/messages/images/img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g
+
+2026-02-05 15:49:27,749 - feishu_websocket - INFO - 检测到本地上传图片，没有URL可用
+2026-02-05 15:49:27,749 - feishu_websocket - INFO - 尝试从飞书API下载图片...
+2026-02-05 15:49:28,309 - feishu_websocket - ERROR - 下载和分析本地图片失败: 404 Client Error: Not Found for url: https://open.feishu.cn/open-apis/im/v1/images/img_v3_02uk_8277cae9-7307-478f-9afb-7614ff554e3g/download
+2026-02-05 15:49:29,377 - feishu_websocket - INFO - ✅ 已处理本地图片并回复用户 ou_1dc6165833b6d6ad79bf29eb0e674572
+2026-02-05 15:49:45,582 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 15:49:45,583 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 15:49:45,584 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 15:49:50,590 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 15:49:50,590 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 15:49:50,590 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 15:49:55,600 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 15:49:55,601 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 15:49:55,601 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 15:50:00,607 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 15:50:00,607 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 15:50:00,608 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 15:52:22,010 - __main__ - INFO - ==================================================
+2026-02-05 15:52:22,011 - __main__ - INFO - 飞书股票智能机器人启动中...
+2026-02-05 15:52:22,013 - __main__ - INFO - ==================================================
+2026-02-05 15:52:22,016 - __main__ - INFO - ✅ 定时任务调度器已启动
+2026-02-05 15:52:22,016 - feishu_websocket - INFO - 飞书WebSocket服务器启动中...
+2026-02-05 15:52:22,018 - feishu_websocket - INFO - App ID: cli_a909df14e7f85bc0
+2026-02-05 15:52:22,018 - feishu_websocket - INFO - App Secret: GMw20dEYIC...
+2026-02-05 15:52:22,018 - feishu_websocket - INFO - Verification Token: ...
+2026-02-05 15:52:23,122 - Lark - INFO - connected to wss://msg-frontier.feishu.cn/ws/v2?fpid=493&aid=552564&device_id=7603285865300905154&access_key=fe74eb38563ea31a644b06c04f66d809&service_id=33554678&ticket=b9464269-ebdc-4231-b6a4-97b7f49029e1 [conn_id=7603285865300905154]
+2026-02-05 15:52:52,549 - __main__ - INFO - 收到信号 2，正在停止...
+2026-02-05 15:52:52,549 - __main__ - INFO - 正在停止飞书股票智能机器人...
+2026-02-05 15:52:52,549 - feishu_websocket - ERROR - 停止失败: 'Client' object has no attribute 'stop'
+2026-02-05 15:52:57,560 - __main__ - INFO - ✅ 飞书股票智能机器人已停止
