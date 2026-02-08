@@ -6,16 +6,19 @@ from coze_manager import CozeContextManager
 from stock_scheduler import StockScheduler
 from image_analyzer import DoubaoImageAnalyzer
 from feishu_messenger import FeishuMessenger
+from openclaw_simulator import OpenClawSimulator
 
 logger = logging.getLogger(__name__)
 
 class FeishuWebSocketServer:
     def __init__(self, coze_manager: CozeContextManager, scheduler: StockScheduler):
         self.coze_manager = coze_manager
+        self.openclaw_manager = OpenClawSimulator()
         self.scheduler = scheduler
         self.client = None
         self.image_analyzer = DoubaoImageAnalyzer()
         self.feishu_messenger = FeishuMessenger()
+        self.user_ai_preference = {}
     
     def handle_message(self, data):
         try:
@@ -289,32 +292,57 @@ class FeishuWebSocketServer:
                 
             elif message in ["清空上下文", "clear", "reset"]:
                 self.coze_manager.clear_session(user_id)
+                self.openclaw_manager.clear_session(user_id)
                 self.feishu_messenger.send_message(user_id, "✅ 对话上下文已清空")
                 logger.info(f"用户 {user_id} 清空上下文")
                 
+            elif message in ["使用Coze", "use_coze", "coze"]:
+                self.user_ai_preference[user_id] = "coze"
+                self.feishu_messenger.send_message(user_id, "✅ 已切换到 Coze 智能体")
+                logger.info(f"用户 {user_id} 切换到 Coze")
+                
+            elif message in ["使用OpenClaw", "use_openclaw", "openclaw"]:
+                self.user_ai_preference[user_id] = "openclaw"
+                self.feishu_messenger.send_message(user_id, "✅ 已切换到 OpenClaw 智能体")
+                logger.info(f"用户 {user_id} 切换到 OpenClaw")
+                
             elif message in ["帮助", "help", "?"]:
-                help_text = """
+                current_ai = self.user_ai_preference.get(user_id, "coze")
+                help_text = f"""
 📖 可用命令：
 • 订阅 - 订阅股票分析推送
 • 取消订阅 - 取消订阅
 • 立即分析 - 立即获取股票分析
 • 清空上下文 - 清空对话历史
+• 使用Coze - 切换到 Coze 智能体
+• 使用OpenClaw - 切换到 OpenClaw 智能体
 • 帮助 - 显示此帮助信息
 
 💬 其他问题会直接与智能体对话
 📸 发送图片可进行图片分析
+
+🤖 当前使用的智能体: {current_ai.upper()}
                 """.strip()
                 self.feishu_messenger.send_message(user_id, help_text)
                 
             else:
-                logger.info(f"转发用户 {user_id} 的问题到智能体...")
-                answer = self.coze_manager.call_coze_with_context(user_id, message)
+                current_ai = self.user_ai_preference.get(user_id, "coze")
+                logger.info(f"用户 {user_id} 使用 {current_ai} 智能体")
+                
+                if current_ai == "openclaw":
+                    logger.info(f"转发用户 {user_id} 的问题到 OpenClaw...")
+                    answer = self.openclaw_manager.call_openclaw_with_context(user_id, message)
+                    ai_name = "OpenClaw"
+                else:
+                    logger.info(f"转发用户 {user_id} 的问题到 Coze...")
+                    answer = self.coze_manager.call_coze_with_context(user_id, message)
+                    ai_name = "Coze"
                 
                 import time
                 timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
-                title = f"【{timestamp} 智能体回复】"
+                title = f"【{timestamp} {ai_name} 智能体回复】"
                 
-                full_content = f"**我的问题：**\n{message}\n\n**智能体回答：**\n{answer}"
+                full_content = f"**我的问题：**\n{message}\n\n**{ai_name}回答：**\n{answer}"
                 
                 success = self.feishu_messenger.send_card_message(user_id, title, full_content)
                 
