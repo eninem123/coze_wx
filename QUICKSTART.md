@@ -51,9 +51,9 @@ pip install -r requirements.txt
 
 ### 2. 配置飞书应用
 
-已配置的飞书应用信息：
-- **App ID**: `cli_a909df14e7f85bc0`
-- **App Secret**: `GMw20dEYICen1AWS7NC02ZgqcQHkLaBV`
+在 `.env` 中配置飞书应用信息：
+- `FEISHU_APP_ID`
+- `FEISHU_APP_SECRET`
 
 ### 3. 启动机器人
 

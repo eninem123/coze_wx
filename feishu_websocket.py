@@ -369,8 +369,6 @@ class FeishuWebSocketServer:
             
             logger.info("飞书WebSocket服务器启动中...")
             logger.info(f"App ID: {Config.FEISHU_APP_ID}")
-            logger.info(f"App Secret: {Config.FEISHU_APP_SECRET[:10]}...")
-            logger.info(f"Verification Token: {Config.FEISHU_VERIFICATION_TOKEN[:10]}...")
             
             self.client.start()
             logger.info("飞书WebSocket服务器已启动")

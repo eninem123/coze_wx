@@ -1,13 +1,20 @@
 import ccxt
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def execute_trade(symbol, action, amount):
     """
     这是一个被 AstrBot 调用的函数
     """
-    # 这里的配置保存在你本地，不发给飞书
+    api_key = os.getenv("HYPERLIQUID_API_KEY", "")
+    secret = os.getenv("HYPERLIQUID_SECRET", "")
+    if not api_key or not secret:
+        raise ValueError("Missing HYPERLIQUID_API_KEY or HYPERLIQUID_SECRET")
     exchange = ccxt.hyperliquid({
-        'apiKey': '0xC632aFEd7fA0145E8c0d146B3099A8A51A7EFBB2',
-        'secret': '0x2e707cdebac3dcda26e20fda414433d29aae394afba7b5957dd00fa8449907c0', # 建议用测试钱包
+        'apiKey': api_key,
+        'secret': secret,
     })
     
     if action == "buy":

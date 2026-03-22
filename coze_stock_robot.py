@@ -9,13 +9,24 @@ load_dotenv()
 
 # ====================== 配置区（只改这里！）======================
 # 1. Coze API 核心参数（从Coze智能体API调用页复制）
+def _get_int_env(name: str, default: int) -> int:
+    value = os.getenv(name)
+    if value is None or value == "":
+        return default
+    try:
+        return int(value)
+    except ValueError:
+        return default
+
 COZE_API_KEY = os.getenv("COZE_KEY")
 COZE_BOT_ID = os.getenv("COZE_BOT_ID_CG")
 COZE_USER_ID = os.getenv("COZE_USER_ID")
-COZE_CG_BER = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImUxNWJiODBmLTAyODAtNDM4My1iZDAwLTY3OThiY2M5ZmI3ZSJ9.eyJpc3MiOiJodHRwczovL2FwaS5jb3plLmNuIiwiYXVkIjpbIldUM1FJb0xzWXNvY0QxM0xaSmRGRHBzWllQWmQ0cnJXIl0sImV4cCI6ODIxMDI2Njg3Njc5OSwiaWF0IjoxNzcwMjE1ODM5LCJzdWIiOiJzcGlmZmU6Ly9hcGkuY296ZS5jbi93b3JrbG9hZF9pZGVudGl0eS9pZDo3NTk4OTQwOTA3NDg3ODg3NDAyIiwic3JjIjoiaW5ib3VuZF9hdXRoX2FjY2Vzc190b2tlbl9pZDo3NjAzMDE5MTM4MDcxNTI3NDU5In0.Ecp_aZcL95ughEMVLSNL2ZNN-M9orPAc4w8tEr6xaa8xOV4gqkfUPh1ZoyOs3DWKcgT3jHDGWWyb6HCN1Ssh5bqKjdxa4cMAOIIjeSuKi7HfAiIhg3QxLD7G52FIJDvB1fuR3eFixJyRBODXmEgolHgGqbfgBtT8sVLP23RlBmz3e2f3iaZPK6iK9g0gR2XtOx7H5-pj9zNZyagGrRhkkD_nfnSn8ak8nclQtPPRNpMbjFNCwmgKqZdPikPD2FdQvmBE67dc-MKZd_zPp0k2ToDyTc0DcYxnvsmYs34myTto964bp1SKoUOveT_S_clhiWMajNrkpKhc0oAcqUz39Q"
+COZE_CG_BER = os.getenv("COZE_CG_BEARER_TOKEN") or os.getenv("COZE_BEARER_TOKEN")
 STOCK_QUESTION = "帮我分析今天A股的整体走势，北向资金流向，以及半导体板块的投资机会，给出简洁的分析和建议"
 PUSH_TYPE = "wechat"
 COZE_API_URL = "https://8mbn769hk8.coze.site/stream_run"
+COZE_SESSION_ID = os.getenv("COZE_SESSION_ID", "Sv2ke0dSddwKotcns0j1c")
+COZE_PROJECT_ID = _get_int_env("COZE_PROJECT_ID", 7598933258117611561)
 
 def call_coze_bot(question):
     headers = {
@@ -36,8 +47,8 @@ def call_coze_bot(question):
             }
         },
         "type": "query",
-        "session_id": "Sv2ke0dSddwKotcns0j1c",
-        "project_id": 7598933258117611561
+        "session_id": COZE_SESSION_ID,
+        "project_id": COZE_PROJECT_ID
     }
     try:
         response = requests.post(COZE_API_URL, json=data, headers=headers, timeout=60, stream=True)
@@ -68,7 +79,7 @@ def push_message(content):
     """推送结果到指定渠道，选一个用即可"""
     if PUSH_TYPE == "wechat":
         # 微信推送：用「Server酱」，最方便的个人微信推送（免费版足够用）
-        SCKEY = "SCT313048TRlGcx1hHu1TvZDmKYYDjYCk5"  # Server酱的SCKEY，后续讲获取
+        SCKEY = os.getenv("SERVERCHAN_SCKEY", "")
         if not SCKEY:
             return "微信推送未配置SCKEY"
         url = f"https://sctapi.ftqq.com/{SCKEY}.send"
